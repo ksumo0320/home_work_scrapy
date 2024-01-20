@@ -39,7 +39,8 @@ class FilmsSpider(scrapy.Spider):
                 next_page = selector.css(self.FILMS_PACKAGES_PATTERN + ' > a::attr(href)').extract_first()
                 if next_page:
                     yield response.follow(next_page, callback=self.select_page_type)
-        # TODO elif for film page (show genre, year...)
+        # TODO elif for film page (show title, genre, director, country, year...)
+        # TODO csv output
 
 
 process = CrawlerProcess()
